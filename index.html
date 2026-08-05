@@ -2,22 +2,73 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍽️ 선결제 식당 장부</title>
     
-    <!-- 카카오톡 등에서 보여질 제목 -->
+    <!-- 카카오톡 미리보기 메타 태그 -->
     <meta property="og:title" content="🍽️ 선결제 식당 장부">
-    <!-- 카카오톡 등에서 보여질 설명 -->
     <meta property="og:description" content="AIoT융합팀 전용 간편 식대 장부입니다.">
-    <!-- 썸네일 이미지 링크 (https:// 중복 제거 완료) -->
-    <meta property="og:image" content="https://i.postimg.cc/Dz4dWFTz/image.png">
+    <meta property="og:image" content="https://i.postimg.cc/PJp6TZ53/image.png">
     
+    <style>
+        /* 폰트 적용 (프리텐다드) */
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 세로 중앙 정렬 */
+            align-items: center;     /* 가로 중앙 정렬 */
+            font-family: 'Pretendard', sans-serif;
+            background-color: #F7F8FA; /* 깔끔하고 연한 배경색 */
+            color: #111827;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #6B7280;
+            margin-bottom: 30px;
+        }
+        
+        /* 뱅글뱅글 돌아가는 스피너 애니메이션 */
+        .spinner {
+            width: 45px;
+            height: 45px;
+            border: 5px solid #E5E7EB; /* 연한 회색 테두리 */
+            border-top: 5px solid #10B981; /* 에메랄드 그린 포인트 */
+            border-radius: 50%;
+            animation: spin 1s linear infinite; /* 1초마다 무한 회전 */
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <p>장부로 이동 중입니다...</p>
+    
+    <!-- 화면에 보여질 내용 -->
+    <h1 class="title">AIoT융합팀 선결제 식당 장부</h1>
+    <p class="subtitle">장부로 이동 중입니다...</p>
+    <div class="spinner"></div>
 
-    <!-- 진짜 사람만 이동시키는 자바스크립트 코드 -->
+    <!-- 사람만 구글 시트로 이동시키는 자바스크립트 -->
     <script>
-        window.location.replace("https://script.google.com/macros/s/AKfycbyr9mJ_YH-lLFuf1R1YNL8nqWDu7L-XOukVGcL1aAg-QvBh-cXMSw08z_P_HgsBAupE/exec");
+        // 화면을 0.8초(800ms) 보여준 뒤에 이동합니다.
+        setTimeout(function() {
+            window.location.replace("https://script.google.com/macros/s/AKfycbyr9mJ_YH-lLFuf1R1YNL8nqWDu7L-XOukVGcL1aAg-QvBh-cXMSw08z_P_HgsBAupE/exec");
+        }, 800); 
     </script>
 </body>
 </html>

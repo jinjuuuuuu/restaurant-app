@@ -1,75 +1,65 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/Kv6LJD9Y/IMG-9246.jpg">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>식당 리스트</title>
-    
-    <!-- 카카오톡 미리보기 메타 태그 -->
-    <meta property="og:title" content="식당 리스트">
-    <meta property="og:description" content="식당 이용 내역 관리 페이지입니다.">
-    <meta property="og:image" content="https://i.postimg.cc/PJp6TZ53/image.png">
-    
-    <style>
-        /* 폰트 적용 (프리텐다드) */
-        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-        
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* 세로 중앙 정렬 */
-            align-items: center;     /* 가로 중앙 정렬 */
-            font-family: 'Pretendard', sans-serif;
-            background-color: #F7F8FA; /* 깔끔하고 연한 배경색 */
-            color: #111827;
-        }
-        
-        .title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .subtitle {
-            font-size: 16px;
-            color: #6B7280;
-            margin-bottom: 30px;
-        }
-        
-        /* 뱅글뱅글 돌아가는 스피너 애니메이션 */
-        .spinner {
-            width: 45px;
-            height: 45px;
-            border: 5px solid #E5E7EB; /* 연한 회색 테두리 */
-            border-top: 5px solid #10B981; /* 에메랄드 그린 포인트 */
-            border-radius: 50%;
-            animation: spin 1s linear infinite; /* 1초마다 무한 회전 */
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-</head>
-<body>
-    
-    <!-- 화면에 보여질 내용 -->
-    <h1 class="title">AIoT융합팀 식당 리스트</h1>
-    <p class="subtitle">이동 중입니다...</p>
-    <div class="spinner"></div>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 
-    <!-- 사람만 구글 시트로 이동시키는 자바스크립트 -->
-    <script>
-        // 화면을 0.8초(800ms) 보여준 뒤에 이동합니다.
-        setTimeout(function() {
-            window.location.replace("https://script.google.com/macros/s/AKfycbyr9mJ_YH-lLFuf1R1YNL8nqWDu7L-XOukVGcL1aAg-QvBh-cXMSw08z_P_HgsBAupE/exec");
-        }, 800); 
-    </script>
-</body>
+    <title>식당 리스트</title>
+
+    <!--
+      홈 화면 아이콘.
+      iOS는 "홈 화면에 추가"를 누른 시점의 최상위 문서에서만 아이콘을 읽습니다.
+      예전처럼 여기서 Apps Script로 리다이렉트하면 이 태그는 읽히기 전에 사라지고,
+      Apps Script HTML의 head는 iframe 안이라 Safari가 볼 수 없어
+      제목 첫 글자로 만든 문자 아이콘("식")이 나옵니다.
+      그래서 리다이렉트 대신 iframe으로 감싸 이 페이지에 머무르게 합니다.
+    -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+
+    <!-- 홈 화면에서 앱처럼 실행 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="식당 리스트">
+    <meta name="theme-color" content="#F7F8FA">
+    <link rel="manifest" href="/manifest.json">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AIoT융합팀 식당 리스트">
+    <meta property="og:description" content="승인된 팀원만 접근할 수 있습니다.">
+    <meta property="og:image" content="/icon-512.png">
+
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #F7F8FA;
+        overflow: hidden;
+      }
+      /* 아이폰 노치 / 하단 홈 인디케이터 영역 확보 */
+      #shell {
+        height: 100%;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+      #app {
+        display: block;
+        border: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="shell">
+      <iframe
+        id="app"
+        title="식당 리스트"
+        src="https://script.google.com/macros/s/AKfycbyr9mJ_YH-lLFuf1R1YNL8nqWDu7L-XOukVGcL1aAg-QvBh-cXMSw08z_P_HgsBAupE/exec"
+      ></iframe>
+    </div>
+  </body>
 </html>
